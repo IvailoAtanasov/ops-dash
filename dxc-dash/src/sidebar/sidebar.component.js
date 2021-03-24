@@ -3,6 +3,8 @@ import * as s from './sidebar.styles'
 import { GrDxc } from 'react-icons/gr';
 
 
+
+
 const Sidebar = props => {
     const { 
         backgroundImage = '',
@@ -34,6 +36,9 @@ const Sidebar = props => {
         <s.SidebarContainer backgroundImage={backgroundImage}>
             <s.SidebarHeader><GrDxc size={50}/></s.SidebarHeader>
             <s.SidebarItemsContainer>{menuItemsJSX}</s.SidebarItemsContainer>
+            <s.ToglerContainer>
+                <s.Togler></s.Togler>
+            </s.ToglerContainer>
         </s.SidebarContainer>
     );
 };

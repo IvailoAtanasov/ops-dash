@@ -14,7 +14,7 @@ export const SidebarContainer = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    border-radius: 25px;
+    border-radius: 10px;
     margin: 2vh;
     
           
@@ -65,4 +65,28 @@ export const IconContainer = styled.div`
     height: 2.8vh;
     margin-left: 2vh;
 `
-    
+
+export const ToglerContainer = styled.div`
+    display: grid;
+    width: 30%;
+    justify-self: center;
+    color: white;
+    position: relative;
+    align-items: center;
+
+
+`
+
+export const Togler = styled.div`
+    &:after {
+        content: '';
+        position: absolute;
+        
+        width: 100%;
+        height: .1em;
+        background: #fff;
+        box-shadow: 
+            0 .75em 0 0 #fff,
+            0 1.5em 0 0 #fff;
+    }
+`
