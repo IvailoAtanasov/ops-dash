@@ -13,11 +13,12 @@ const Sidebar = props => {
 
     const [selected, setSelectedMenuItem] = useState(menuItems[0].name)
     const [isSidebarOpen, setSidebarState] = useState(true)
+    const [isMenuItemHover, setMenuItemHover] = useState(false)
     
     //update of sidebar state
     useEffect(() => {
         const updateWindowWidth = () => {
-            if (window.innerWidth < 1500 && isSidebarOpen) setSidebarState(false)
+            if (window.innerWidth < 1190 && isSidebarOpen) setSidebarState(false)
             else setSidebarState(true)
         }
         window.addEventListener('resize',updateWindowWidth)
@@ -39,22 +40,25 @@ const Sidebar = props => {
             <s.MenuItem key={index}
                         selected={isItemSelected}
                         onClick={() => handleMenuItemClick(item.name)}
-                        isSidebarOpen={isSidebarOpen}>
+                        isSidebarOpen={isSidebarOpen}
+                        onMouseEnter={() => setMenuItemHover(item.name === 'Reports')}
+                        onMouseLeave={() => setMenuItemHover(false)}>
+                        
                         
                 <s.IconContainer >{item.icon}</s.IconContainer>
                 <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
                 {hasSubmenu && (
                     <s.DropDownIcon 
                         isSidebarOpen={isSidebarOpen} 
-                        selected={isItemSelected}/>
+                        selected={isItemSelected}
+                        isMenuItemHover={isMenuItemHover}
+                        />
                 )}
                 
             </s.MenuItem>
         )
     })
     
-    
-
     return (
         <s.SidebarContainer 
             backgroundImage={backgroundImage} 

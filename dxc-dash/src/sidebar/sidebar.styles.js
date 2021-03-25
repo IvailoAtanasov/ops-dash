@@ -75,17 +75,12 @@ export const DropDownIcon = styled.div`
     justify-self: center;
     top: 12px;
     border: ${p => p.selected ? 'solid #ff0000' : 'solid #ffffff'};
+    ${p => p.isMenuItemHover && `border: solid #ff0000;`}
+
     border-width: 0 1px 1px 0;
     padding: 3px;
     transform: rotate(45deg);
     display: ${p => p.isSidebarOpen ? '' : 'none'};
-    /*
-    $:hover & {
-            border: solid #ff0000;
-            border-width: 0 1px 1px 0;
-            padding: 3px;
-        }
-    */
 `
 
 
@@ -93,6 +88,7 @@ export const ToglerContainer = styled.div`
     display: grid;
     width: 30%;
     justify-self: center;
+    //align-self: center;
     color: white;
     position: relative;
     align-items: center;
