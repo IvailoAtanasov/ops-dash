@@ -17,7 +17,7 @@ export const SidebarContainer = styled.div`
     background-position: center center;
     border-radius: 10px;
     margin: 2vh;
-    transition: .2s ease-in all;
+    
           
 `
 export const SidebarHeader = styled.h3`
@@ -36,25 +36,28 @@ export const SidebarItemsContainer = styled.div`
     margin-top: 2vh;
     justify-items: center;
 `
+
 export const MenuItem = styled.div`
     display: grid;
-    grid-template-columns: 1rem auto;
-    grid-gap: 2vh;
-    width: 90%;
+    grid-template-columns: ${p => p.isSidebarOpen ? '6rem auto 3rem' : 'none'};
+    width: 100%;
+    height: 4rem;
     color:${p => p.selected ? '#ff0000' : 'white'};
     box-shadow: ${p => p.selected ? '0 4px 2px -2px #0a0612' : ''};
     line-height: 1.5;
     text-transform: uppercase;
-
+    transition: .2s ease-in margin-left; 
+    transform: translateZ(0);
+    
     &:hover {
-        box-shadow: 0 4px 2px -2px #0a0612;
+        ${p => p.isSidebarOpen && `box-shadow: 0 4px 2px -2px #0a0612;`}
         color: #ff0000;
         transition: .2s ease-in all;
     }
 `
 export const Text = styled.p`
-    ${p => p.isSidebarOpen && `margin-left: 2rem; transition: .2s ease-in margin-left`};
     align-self: center;
+    justify-self:left;
     font-size: .8rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -63,9 +66,28 @@ export const Text = styled.p`
 `
 export const IconContainer = styled.div`
     align-self: center;
+    justify-self: center;
     height: 2.8vh;
-    margin-left: ${p => p.isSidebarOpen ? '2vh' : '3vh'};
+    
 `
+export const DropDownIcon = styled.div`
+    align-self: center;
+    justify-self: center;
+    top: 12px;
+    border: ${p => p.selected ? 'solid #ff0000' : 'solid #ffffff'};
+    border-width: 0 1px 1px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+    display: ${p => p.isSidebarOpen ? '' : 'none'};
+    /*
+    $:hover & {
+            border: solid #ff0000;
+            border-width: 0 1px 1px 0;
+            padding: 3px;
+        }
+    */
+`
+
 
 export const ToglerContainer = styled.div`
     display: grid;
@@ -82,7 +104,6 @@ export const Togler = styled.div`
     &:after {
         content: '';
         position: absolute;
-        
         width: 100%;
         height: .1em;
         background: #fff;
