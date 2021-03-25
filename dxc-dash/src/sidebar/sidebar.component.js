@@ -12,6 +12,8 @@ const Sidebar = props => {
         } = props;
 
     const [selected, setSelectedMenuItem] = useState(menuItems[0].name)
+    const [isSidebarOpen, setSidebarState] = useState(true)
+    
 
     const handleMenuItemClick = name => {
         setSelectedMenuItem(name)
@@ -25,7 +27,7 @@ const Sidebar = props => {
                         onClick={() => handleMenuItemClick(item.name)}>
                         
                 <s.IconContainer >{item.icon}</s.IconContainer>
-                <s.Text>{item.name}</s.Text>
+                <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
             </s.MenuItem>
         )
     })
@@ -33,10 +35,12 @@ const Sidebar = props => {
     
 
     return (
-        <s.SidebarContainer backgroundImage={backgroundImage}>
+        <s.SidebarContainer 
+            backgroundImage={backgroundImage} 
+            isSidebarOpen={isSidebarOpen}>
             <s.SidebarHeader><GrDxc size={50}/></s.SidebarHeader>
             <s.SidebarItemsContainer>{menuItemsJSX}</s.SidebarItemsContainer>
-            <s.ToglerContainer>
+            <s.ToglerContainer onClick={() => setSidebarState(!isSidebarOpen)}>
                 <s.Togler></s.Togler>
             </s.ToglerContainer>
         </s.SidebarContainer>

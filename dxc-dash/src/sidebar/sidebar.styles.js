@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 export const SidebarContainer = styled.div`
     display: grid;
+    width: ${p => p.isSidebarOpen ? '20%' : '5%'};
     grid-template-rows: 10% auto auto;
-    width: 20%;
+    
     max-width: 280px;
     min-width: 80px;
     background-image: 
@@ -16,11 +17,10 @@ export const SidebarContainer = styled.div`
     background-position: center center;
     border-radius: 10px;
     margin: 2vh;
-    
+    transition: .2s ease-in all;
           
 `
 export const SidebarHeader = styled.h3`
-    
     justify-self: center;
     margin-top: 3vh;
     margin-bottom: 2vh;
@@ -53,17 +53,18 @@ export const MenuItem = styled.div`
     }
 `
 export const Text = styled.p`
-    margin-left: 2rem;
+    ${p => p.isSidebarOpen && `margin-left: 2rem; transition: .2s ease-in margin-left`};
     align-self: center;
     font-size: .8rem;
     font-weight: 700;
     letter-spacing: 2px;
+    display: ${p => p.isSidebarOpen ? '' : 'none'}
     
 `
 export const IconContainer = styled.div`
     align-self: center;
     height: 2.8vh;
-    margin-left: 2vh;
+    margin-left: ${p => p.isSidebarOpen ? '2vh' : '3vh'};
 `
 
 export const ToglerContainer = styled.div`
