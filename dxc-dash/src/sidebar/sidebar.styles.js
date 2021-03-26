@@ -88,10 +88,10 @@ export const ToglerContainer = styled.div`
     display: grid;
     width: 30%;
     justify-self: center;
-    //align-self: center;
     color: white;
     position: relative;
     align-items: center;
+    margin-bottom: 1vh;
 
 
 `
