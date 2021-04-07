@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Routes from "./../../Routers";
 const Main = () => {
     return (
         <div className='main-container'>
-            <h1>Main</h1>
+            <Routes/>
         </div>
     );
 };

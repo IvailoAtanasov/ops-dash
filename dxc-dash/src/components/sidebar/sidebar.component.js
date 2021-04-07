@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as s from './sidebar.styles'
 import { GrDxc } from 'react-icons/gr';
-
+import { Link } from 'react-router-dom'
 
 
 
@@ -13,7 +13,7 @@ const Sidebar = props => {
 
     const [selected, setSelectedMenuItem] = useState(menuItems[0].name)
     const [isSidebarOpen, setSidebarState] = useState(true)
-    const [isMenuItemHover, setMenuItemHover] = useState(false)
+    
     
     //update of sidebar state
     useEffect(() => {
@@ -34,28 +34,23 @@ const Sidebar = props => {
 
     const menuItemsJSX = menuItems.map((item, index) => {
         const isItemSelected = selected === item.name
-        const hasSubmenu = !!item.submenuItems.length;
         
         return(
+            <Link to={item.to} style={{ textDecoration: 'none' }}>
             <s.MenuItem key={index}
                         selected={isItemSelected}
                         onClick={() => handleMenuItemClick(item.name)}
                         isSidebarOpen={isSidebarOpen}
-                        onMouseEnter={() => setMenuItemHover(item.name === 'Reports')}
-                        onMouseLeave={() => setMenuItemHover(false)}>
+                        >
                         
                         
                 <s.IconContainer >{item.icon}</s.IconContainer>
                 <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
-                {hasSubmenu && (
-                    <s.DropDownIcon 
-                        isSidebarOpen={isSidebarOpen} 
-                        selected={isItemSelected}
-                        isMenuItemHover={isMenuItemHover}
-                        />
-                )}
+                
                 
             </s.MenuItem>
+            </Link>
+            
         )
     })
     

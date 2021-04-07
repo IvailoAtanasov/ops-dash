@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 export const SidebarContainer = styled.div`
     display: grid;
-    width: ${p => p.isSidebarOpen ? '20%' : '5%'};
+    width: ${p => p.isSidebarOpen ? '26.5%' : '5%'};
     grid-template-rows: 10% auto auto;
     
     max-width: 280px;
@@ -35,12 +35,14 @@ export const SidebarItemsContainer = styled.div`
     row-gap: 2vh;
     margin-top: 2vh;
     justify-items: center;
+    width: 94%;
+    
 `
 
 export const MenuItem = styled.div`
     display: grid;
     grid-template-columns: ${p => p.isSidebarOpen ? '6rem auto 3rem' : 'none'};
-    width: 100%;
+    width: 94%;
     height: 4rem;
     color:${p => p.selected ? '#ff0000' : 'white'};
     box-shadow: ${p => p.selected ? '0 4px 2px -2px #0a0612' : ''};
@@ -54,6 +56,7 @@ export const MenuItem = styled.div`
         color: #ff0000;
         transition: .2s ease-in all;
     }
+    
 `
 export const Text = styled.p`
     align-self: center;
@@ -61,7 +64,8 @@ export const Text = styled.p`
     font-size: .8rem;
     font-weight: 700;
     letter-spacing: 2px;
-    display: ${p => p.isSidebarOpen ? '' : 'none'}
+    display: ${p => p.isSidebarOpen ? '' : 'none'};
+    
     
 `
 export const IconContainer = styled.div`
@@ -70,18 +74,7 @@ export const IconContainer = styled.div`
     height: 2.8vh;
     
 `
-export const DropDownIcon = styled.div`
-    align-self: center;
-    justify-self: center;
-    top: 12px;
-    border: ${p => p.selected ? 'solid #ff0000' : 'solid #ffffff'};
-    ${p => p.isMenuItemHover && `border: solid #ff0000;`}
 
-    border-width: 0 1px 1px 0;
-    padding: 3px;
-    transform: rotate(45deg);
-    display: ${p => p.isSidebarOpen ? '' : 'none'};
-`
 
 
 export const ToglerContainer = styled.div`
@@ -108,3 +101,5 @@ export const Togler = styled.div`
             0 1.5em 0 0 #fff;
     }
 `
+
+
